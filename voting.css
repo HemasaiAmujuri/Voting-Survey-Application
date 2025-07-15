@@ -69,14 +69,14 @@ input {
 }
 
 
-p {
+label {
     font-weight: 500;
     font-size:30px;
     width : 200px;
 }
 
 
-.technologies {
+#technologies {
     display : flex;
     flex-direction: column;
     margin-left : 50px;

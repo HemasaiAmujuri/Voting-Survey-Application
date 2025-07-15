@@ -11,64 +11,68 @@
       <div class="voting">
         <h1>Your Favourite Frontend Framework in 2025</h1>
 
-        <h2> Choose the framework you prefer the most for building modern web applications. </h2>
+        <h2>
+          Choose the framework you prefer the most for building modern web
+          applications.
+        </h2>
 
-        <div class="technologies">
+        <form id="technologies">
+
           <div class="technology">
-            <input type="radio" class="radio" />
-            <p>React</p>
+            <input type="radio" id="react" class="radio" />
+            <label for="react">React</label>
           </div>
 
           <div class="technology">
-            <input type="radio" class="radio" />
-            <p>Angular</p>
+            <input type="radio" id = "angular" class="radio" />
+            <label for="angular">Angular</label>
           </div>
 
           <div class="technology">
-            <input type="radio" class="radio" />
-            <p>Vue</p>
+            <input type="radio" class="radio" id = "vue" />
+            <label for="vue">Vue</label>
           </div>
 
           <div class="technology">
-            <input type="radio" class="radio" />
-            <p>Svelte</p>
+            <input type="radio"  id="svelte" class="radio" />
+            <label for="svelte">Svelte<label>
           </div>
 
           <div class="technology">
-            <input type="radio" class="radio" />
-            <p>Solid.js</p>
+            <input type="radio" id="solid"class="radio" />
+            <label for="solid">Solid.js<label>
           </div>
 
-          <button type = "submit"> Submit </button>
-
+          <button onclick="submit()">Submit</button>
+          </form>
         </div>
-      </div>
       <div class="data-visualization">
-          <h1> Data Visualization</h1>
+        <h1>Data Visualization</h1>
 
-          <h2> Select your preferred chart type to visualize the voting results. </h2>
+        <h2>
+          Select your preferred chart type to visualize the voting results.
+        </h2>
 
-          <div class = "charts">
+        <div class="charts">
           <div class="chart-type">
             <input type="radio" class="radio" />
-            <p>Bar Graph</p>
+            <label>Bar Graph<label>
           </div>
-
-          <div class="chart-type">
-            <input type="radio" class="radio" />
-            <p>Line Graph</p>
-          </div>
-
 
           <div class="chart-type">
             <input type="radio" class="radio" />
-            <p>Pie chart</p>
-          </div>
+            <label>Line Graph<label>
           </div>
 
-          <button type = "submit"> Submit </button>
+          <div class="chart-type">
+            <input type="radio" class="radio" />
+            <label>Pie chart<label>
+          </div>
+        </div>
 
+        <button onclick="submit()">Submit</button>
       </div>
     </div>
+    <script src="./voting.js"></script>
   </body>
 </html>
