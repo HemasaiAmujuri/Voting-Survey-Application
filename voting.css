@@ -2,16 +2,22 @@
     margin : 0px;
     padding : 0px;
     font-family:Arial, Helvetica, sans-serif;
+    overflow :auto;
 }
 
 
 
 .voting {
-    height : 550px;
+    height : 620px;
     width : 700px;
-    justify-content : center;
-    align-items: center;
-    /* background-color: blue; */
+    background-color: lightgray;
+}
+
+
+.data-visualization {
+    height : 620px;
+    width : 700px;
+    background-color: lightgray;
 }
 
 
@@ -20,6 +26,7 @@
     align-items: center;
     justify-content : center;
     height : 100vh;
+    gap : 10%;
 }
 
 
@@ -27,6 +34,12 @@ h1 {
     text-align: center;
     font-weight: bold;
     font-size: 45px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .radio {
@@ -40,7 +53,7 @@ h1 {
     flex-direction: row;
     gap : 15px;
     margin-left: 5%;
-    margin-top:30px;
+    margin-top:20px;
     align-items: center;
     height : 30px;
 }
@@ -59,22 +72,42 @@ input {
 p {
     font-weight: 500;
     font-size:30px;
-    width : 80px;
+    width : 200px;
 }
 
 
 .technologies {
-    gap : 15px;
+    display : flex;
+    flex-direction: column;
+    margin-left : 50px;
 }
 
 
 button {
-  margin : 5% 30% 30% 45%;
+  margin : 5% 30% 30% 40%;
   height : 50px;
   width : 100px;
   border-radius: 50px;
-  background-color: lightGray;
+  background-color: 2px solid black;
   border-style: none;
   font-weight: 500;
   font-size: 20px;
+}
+
+
+
+.chart-type {
+    display : flex;
+    flex-direction: row;
+    gap : 15px;
+    margin-left: 50px;
+    margin-top:30px;
+    align-items: center;
+    height : 30px;
+}
+
+.charts {
+    display : flex;
+    flex-direction: column;
+    margin-left : 40px;
 }
