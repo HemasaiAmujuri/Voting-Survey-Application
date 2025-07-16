@@ -1,8 +1,98 @@
-function submit(){
-    console.log("3");
-    alert("onclick working");
-    // const data = document.getElementById("formData");
-    // console.log(data);
-    // alert(`this is ${data}`);
+function submit() {
+  let ele = document.getElementsByName("framework");
+
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+      alert(`Thank You for choosing ${ele[i].value}`);
+      let value = localStorage.getItem(ele[i].value);
+      value++;
+
+      console.log(value);
+      localStorage.setItem(ele[i].value, value);
+    }
+  }
 }
 
+function displayGraph() {
+  let ele = document.getElementsByName("chart");
+
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+      const value = ele[i].value;
+      alert(`Thank You for choosing ${value}`);
+
+      let react = localStorage.getItem("React");
+      let angular = localStorage.getItem("Angular");
+      let solid = localStorage.getItem("Solid.js");
+      let svelte = localStorage.getItem("Svelte");
+      let vue = localStorage.getItem("Vue");
+
+      const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+      const yValues = [react, angular, vue, svelte, solid];
+      const barColors = ["red", "green", "blue", "orange", "brown"];
+
+      if (value === "Bar Graph") {
+        const container = document.getElementById("heading");
+
+        const h1Element = document.createElement("h1");
+
+        h1Element.textContent = "Bar Graph";
+
+        container.textContent = "";
+        container.appendChild(h1Element);
+
+        new Chart("myChart", {
+          type: "bar",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                backgroundColor: barColors,
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: "Pie Chart",
+            },
+            title: {
+              display: true,
+              text: "Frameworks Used in Modern Web Applications",
+            },
+          },
+        });
+      } else if (value === "Pie Chart") {
+        const container = document.getElementById("heading");
+
+        const h1Element = document.createElement("h1");
+
+        h1Element.textContent = "Pie Chart";
+
+        container.textContent = "";
+        container.appendChild(h1Element);
+        new Chart("myChart", {
+          type: "pie",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                backgroundColor: barColors,
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: "Frameworks Used in Modern Web Applications",
+            },
+          },
+        });
+      }
+    }
+  }
+}

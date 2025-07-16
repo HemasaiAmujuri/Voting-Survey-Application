@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voting Survey Application</title>
     <link rel="stylesheet" href="./voting.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
   <body>
     <div class="parent">
@@ -16,35 +17,35 @@
           applications.
         </h2>
 
-        <form id="technologies">
+        <div class="technologies">
 
           <div class="technology">
-            <input type="radio" id="react" class="radio" />
+            <input type="radio" id="react" name="framework" value="React" class="radio" />
             <label for="react">React</label>
-          </div>
+          </div> 
 
           <div class="technology">
-            <input type="radio" id = "angular" class="radio" />
+            <input type="radio" id = "angular"  name="framework" value="Angular"class="radio" />
             <label for="angular">Angular</label>
           </div>
 
           <div class="technology">
-            <input type="radio" class="radio" id = "vue" />
+            <input type="radio" class="radio" id = "vue"  name="framework" value = "Vue"/>
             <label for="vue">Vue</label>
           </div>
 
           <div class="technology">
-            <input type="radio"  id="svelte" class="radio" />
+            <input type="radio"  id="svelte"  name="framework" value = "Svelte" class="radio" />
             <label for="svelte">Svelte<label>
           </div>
 
           <div class="technology">
-            <input type="radio" id="solid"class="radio" />
+            <input type="radio" id="solid" value = "Solid.js"  name="framework" class="radio" />
             <label for="solid">Solid.js<label>
           </div>
 
           <button onclick="submit()">Submit</button>
-          </form>
+        </div>
         </div>
       <div class="data-visualization">
         <h1>Data Visualization</h1>
@@ -55,24 +56,31 @@
 
         <div class="charts">
           <div class="chart-type">
-            <input type="radio" class="radio" />
-            <label>Bar Graph<label>
+            <input type="radio" id = "bar-graph" name = "chart" value = "Bar Graph" class="radio" />
+            <label for = "bar-graph">Bar Graph<label>
           </div>
 
-          <div class="chart-type">
-            <input type="radio" class="radio" />
+          <!-- <div class="chart-type">
+            <input type="radio" id = "line-graph" name = "chart" value = "Line Graph" class="radio" />
             <label>Line Graph<label>
-          </div>
+          </div> -->
 
           <div class="chart-type">
-            <input type="radio" class="radio" />
+            <input type="radio" id = "Pie-chart" name = "chart" value = "Pie Chart" class="radio" />
             <label>Pie chart<label>
           </div>
         </div>
 
-        <button onclick="submit()">Submit</button>
+        <button onclick="displayGraph()">Submit</button>
       </div>
     </div>
+   
+    </div>
+    <div class = "bar">
+      <hl id ="heading"></hl>
+      <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+    </div>
+      <canvas id="myChart" style="width:100%;max-width:800px;"></canvas>
     <script src="./voting.js"></script>
   </body>
 </html>
