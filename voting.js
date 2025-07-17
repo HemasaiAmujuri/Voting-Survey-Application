@@ -88,6 +88,39 @@ function displayGraph() {
             },
           },
         });
+      } else if (value === "Line Graph") {
+        const container = document.getElementById("heading");
+
+        const h1Element = document.createElement("h1");
+
+        h1Element.textContent = "Line Graph";
+
+        container.textContent = "";
+        container.appendChild(h1Element);
+
+        const max = Math.max(...yValues);
+        
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              yAxes: [{ ticks: { min: 1, max: max  } }],
+            },
+          },
+        });
       }
     }
   }
