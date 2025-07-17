@@ -56,10 +56,6 @@ function displayGraph() {
             legend: { display: false },
             title: {
               display: true,
-              text: "Pie Chart",
-            },
-            title: {
-              display: true,
               text: "Frameworks Used in Modern Web Applications",
             },
           },
