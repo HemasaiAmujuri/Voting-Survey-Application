@@ -6,6 +6,7 @@
     <title>Voting Survey Application</title>
     <link rel="stylesheet" href="./voting.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/0.7.0/chartjs-plugin-datalabels.min.js"></script>
   </head>
   <body>
     <div class = "parent">
@@ -52,17 +53,23 @@
 
         <div class="charts">
           <div class="chart-type">
-            <input type="radio" id = "bar-graph" name = "chart" value = "Bar Graph" class="radio" />
-            <label for = "bar-graph">Bar Graph<label>
+            <input type="radio" id = "vertical-bar-graph" name="chart" value = "Vertical Bar Graph" class="radio" onclick="verticalBarGraph()"/>
+            <label for = "bar-graph">Vertical Bar Graph<label>
+          </div>
+
+
+          <div class="chart-type">
+            <input type="radio" id = "horizontal-bar-graph" name="chart" value = "Horizontal Bar Graph" class="radio" onclick="horizontalBarGraph()"/>
+            <label>Horizontal Bar Graph<label>
           </div>
 
           <div class="chart-type">
-            <input type="radio" id = "line-graph" name = "chart" value = "Line Graph" class="radio" />
+            <input type="radio" id = "line-graph" name="chart" value = "Line Graph" class="radio" onclick="lineGraph()"/>
             <label>Line Graph<label>
           </div>
 
           <div class="chart-type">
-            <input type="radio" id = "Pie-chart" name = "chart" value = "Pie Chart" class="radio" />
+            <input type="radio" id = "Pie-chart" name="chart" value = "Pie Chart" class="radio" onclick="pieChart()"/>
             <label>Pie chart<label>
           </div>
         </div>
@@ -71,10 +78,9 @@
         </div>
       </div>
     <div class = "bar">
-      <hl id ="heading"></hl>
+      <h1 id ="heading"></h1>
       <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
     </div>
-      <canvas id="myChart" style="width:100%;max-width:800px;"></canvas>
     <script src="./voting.js"></script>
   </body>
 </html>

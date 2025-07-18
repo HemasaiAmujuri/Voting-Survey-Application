@@ -13,115 +13,214 @@ function submit() {
   }
 }
 
-function displayGraph() {
-  let ele = document.getElementsByName("chart");
+let react = localStorage.getItem("React");
+let angular = localStorage.getItem("Angular");
+let solid = localStorage.getItem("Solid.js");
+let svelte = localStorage.getItem("Svelte");
+let vue = localStorage.getItem("Vue");
 
-  for (i = 0; i < ele.length; i++) {
-    if (ele[i].checked) {
-      const value = ele[i].value;
-      alert(`Thank You for choosing ${value}`);
+const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+const yValues = [react, angular, vue, svelte, solid];
+const barColors = ["red", "green", "blue", "orange", "brown"];
 
-      let react = localStorage.getItem("React");
-      let angular = localStorage.getItem("Angular");
-      let solid = localStorage.getItem("Solid.js");
-      let svelte = localStorage.getItem("Svelte");
-      let vue = localStorage.getItem("Vue");
+const ctx = document.getElementById("myChart").getContext("2d");
 
-      const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
-      const yValues = [react, angular, vue, svelte, solid];
-      const barColors = ["red", "green", "blue", "orange", "brown"];
+function verticalBarGraph() {
+  const container = document.getElementById("heading");
 
-      if (value === "Bar Graph") {
-        const container = document.getElementById("heading");
+  const h1Element = document.createElement("h1");
 
-        const h1Element = document.createElement("h1");
+  h1Element.textContent = "Vertical Bar Graph";
 
-        h1Element.textContent = "Bar Graph";
+  container.textContent = "";
+  container.appendChild(h1Element);
 
-        container.textContent = "";
-        container.appendChild(h1Element);
 
-        new Chart("myChart", {
-          type: "bar",
-          data: {
-            labels: xValues,
-            datasets: [
-              {
-                backgroundColor: barColors,
-                data: yValues,
-              },
-            ],
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          backgroundColor: barColors,
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Frameworks Used in Modern Web Applications",
+      },
+      plugins: {
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          color: "#000",
+          font: {
+            weight: "bold",
           },
-          options: {
-            legend: { display: false },
-            title: {
-              display: true,
-              text: "Frameworks Used in Modern Web Applications",
-            },
+          formatter: (value, context) => {
+            const data = context.chart.data.datasets[0].data;
+            const total = data.reduce((a, b) => Number(a) + Number(b), 0);
+            if (total === 0) return "0%";
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${value} (${percentage}%)`;
           },
-        });
-      } else if (value === "Pie Chart") {
-        const container = document.getElementById("heading");
+        },
+      },
+    },
+    plugins: [ChartDataLabels],
+  });
+}
 
-        const h1Element = document.createElement("h1");
+function horizontalBarGraph() {
+  const container = document.getElementById("heading");
 
-        h1Element.textContent = "Pie Chart";
+  const h1Element = document.createElement("h1");
 
-        container.textContent = "";
-        container.appendChild(h1Element);
-        new Chart("myChart", {
-          type: "pie",
-          data: {
-            labels: xValues,
-            datasets: [
-              {
-                backgroundColor: barColors,
-                data: yValues,
-              },
-            ],
+  h1Element.textContent = "Horizontal Bar Graph";
+
+  container.textContent = "";
+  container.appendChild(h1Element);
+
+  new Chart("myChart", {
+    type: "horizontalBar",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          backgroundColor: barColors,
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Frameworks Used in Modern Web Applications",
+      },
+      plugins: {
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          color: "#000",
+          font: {
+            weight: "bold",
           },
-          options: {
-            legend: { display: false },
-            title: {
-              display: true,
-              text: "Frameworks Used in Modern Web Applications",
-            },
+          formatter: (value, context) => {
+            const data = context.chart.data.datasets[0].data;
+            const total = data.reduce((a, b) => Number(a) + Number(b), 0);
+            if (total === 0) return "0%";
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${value} (${percentage}%)`;
           },
-        });
-      } else if (value === "Line Graph") {
-        const container = document.getElementById("heading");
+          plugins: [ChartDataLabels],
+        },
+      },
+    },
+  });
+}
 
-        const h1Element = document.createElement("h1");
+function pieChart() {
+  const container = document.getElementById("heading");
 
-        h1Element.textContent = "Line Graph";
+  const h1Element = document.createElement("h1");
 
-        container.textContent = "";
-        container.appendChild(h1Element);
+  h1Element.textContent = "Pie Chart";
 
-        const max = Math.max(...yValues);
-        
-        new Chart("myChart", {
-          type: "line",
-          data: {
-            labels: xValues,
-            datasets: [
-              {
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: yValues,
-              },
-            ],
+  container.textContent = "";
+  container.appendChild(h1Element);
+  new Chart("myChart", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          backgroundColor: barColors,
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Frameworks Used in Modern Web Applications",
+      },
+      plugins: {
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          color: "#000",
+          font: {
+            weight: "bold",
           },
-          options: {
-            legend: { display: false },
-            scales: {
-              yAxes: [{ ticks: { min: 1, max: max  } }],
-            },
+          formatter: (value, context) => {
+            const data = context.chart.data.datasets[0].data;
+            const total = data.reduce((a, b) => Number(a) + Number(b), 0);
+            if (total === 0) return "0%";
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${value} (${percentage}%)`;
           },
-        });
-      }
-    }
-  }
+          plugins: [ChartDataLabels],
+        },
+      },
+    },
+  });
+}
+
+function lineGraph() {
+  const container = document.getElementById("heading");
+
+  const h1Element = document.createElement("h1");
+
+  h1Element.textContent = "Line Graph";
+
+  container.textContent = "";
+  container.appendChild(h1Element);
+
+  const max = Math.max(...yValues);
+
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [
+        {
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "rgba(0,0,255,1.0)",
+          borderColor: "rgba(0,0,255,0.1)",
+          data: yValues,
+        },
+      ],
+    },
+    options: {
+      legend: { display: false },
+      scales: {
+        yAxes: [{ ticks: { min: 1, max: max+1 } }],
+      },
+      plugins: {
+        datalabels: {
+          anchor: "end",
+          align: "top",
+          color: "#000",
+          font: {
+            weight: "bold",
+          },
+          formatter: (value, context) => {
+            const data = context.chart.data.datasets[0].data;
+            const total = data.reduce((a, b) => Number(a) + Number(b), 0);
+            if (total === 0) return "0%";
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${value} (${percentage}%)`;
+          },
+          plugins: [ChartDataLabels],
+        },
+      },
+    },
+  });
 }
