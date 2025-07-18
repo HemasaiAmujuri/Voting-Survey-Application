@@ -23,7 +23,6 @@ const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
 const yValues = [react, angular, vue, svelte, solid];
 const barColors = ["red", "green", "blue", "orange", "brown"];
 
-const ctx = document.getElementById("myChart").getContext("2d");
 
 function verticalBarGraph() {
   const container = document.getElementById("heading");
@@ -34,6 +33,9 @@ function verticalBarGraph() {
 
   container.textContent = "";
   container.appendChild(h1Element);
+
+
+  const ctx = document.getElementById("myChartVerticalBarGraph").getContext("2d");
 
 
   new Chart(ctx, {
@@ -85,7 +87,11 @@ function horizontalBarGraph() {
   container.textContent = "";
   container.appendChild(h1Element);
 
-  new Chart("myChart", {
+  const ctx = document.getElementById("myChartHorizontalBarGraph").getContext("2d");
+
+  console.log(ctx);
+
+  new Chart(ctx, {
     type: "horizontalBar",
     data: {
       labels: xValues,
@@ -133,7 +139,11 @@ function pieChart() {
 
   container.textContent = "";
   container.appendChild(h1Element);
-  new Chart("myChart", {
+
+  const ctx = document.getElementById("myChartPieChart").getContext("2d");
+
+
+  new Chart(ctx, {
     type: "pie",
     data: {
       labels: xValues,
@@ -184,7 +194,10 @@ function lineGraph() {
 
   const max = Math.max(...yValues);
 
-  new Chart("myChart", {
+
+  const ctx = document.getElementById("myChartLineGraph").getContext("2d");
+
+  new Chart( ctx, {
     type: "line",
     data: {
       labels: xValues,
