@@ -114,12 +114,14 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    gap:5px;
 }
 
 
-bar h1 {
+.bar h1 {
     font-weight: bold;
-    font-size:50px;
+    font-size:40px;
+    gap : 10px;
 }
 
 

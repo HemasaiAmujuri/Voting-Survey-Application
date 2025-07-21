@@ -1,3 +1,14 @@
+let currentChart = null;
+
+
+function destroyChart() {
+  if (currentChart !== null) {
+    currentChart.destroy();
+    currentChart = null;
+  }
+}
+
+
 function submit() {
   let ele = document.getElementsByName("framework");
 
@@ -25,6 +36,7 @@ const barColors = ["red", "green", "blue", "orange", "brown"];
 
 
 function verticalBarGraph() {
+  destroyChart(); 
   const container = document.getElementById("heading");
 
   const h1Element = document.createElement("h1");
@@ -35,10 +47,11 @@ function verticalBarGraph() {
   container.appendChild(h1Element);
 
 
-  const ctx = document.getElementById("myChartVerticalBarGraph").getContext("2d");
+  const ctx = document.getElementById("myChart").getContext("2d");
+  
 
 
-  new Chart(ctx, {
+  currentChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: xValues,
@@ -63,7 +76,7 @@ function verticalBarGraph() {
           font: {
             weight: "bold",
           },
-          formatter: (value, context) => {
+           formatter: (value, context) => {
             const data = context.chart.data.datasets[0].data;
             const total = data.reduce((a, b) => Number(a) + Number(b), 0);
             if (total === 0) return "0%";
@@ -78,6 +91,7 @@ function verticalBarGraph() {
 }
 
 function horizontalBarGraph() {
+  destroyChart(); 
   const container = document.getElementById("heading");
 
   const h1Element = document.createElement("h1");
@@ -87,11 +101,13 @@ function horizontalBarGraph() {
   container.textContent = "";
   container.appendChild(h1Element);
 
-  const ctx = document.getElementById("myChartHorizontalBarGraph").getContext("2d");
+  const ctx = document.getElementById("myChart").getContext("2d");
+
+   const max = Math.max(...yValues);
 
   console.log(ctx);
 
-  new Chart(ctx, {
+  currentChart = new Chart(ctx, {
     type: "horizontalBar",
     data: {
       labels: xValues,
@@ -103,6 +119,9 @@ function horizontalBarGraph() {
       ],
     },
     options: {
+      scales: {
+        xAxes: [{ ticks: { min: 1, max: max+1 } }],
+      },
       legend: { display: false },
       title: {
         display: true,
@@ -131,6 +150,7 @@ function horizontalBarGraph() {
 }
 
 function pieChart() {
+  destroyChart(); 
   const container = document.getElementById("heading");
 
   const h1Element = document.createElement("h1");
@@ -140,10 +160,10 @@ function pieChart() {
   container.textContent = "";
   container.appendChild(h1Element);
 
-  const ctx = document.getElementById("myChartPieChart").getContext("2d");
+  const ctx = document.getElementById("myChart").getContext("2d");
 
 
-  new Chart(ctx, {
+  currentChart = new Chart(ctx, {
     type: "pie",
     data: {
       labels: xValues,
@@ -170,10 +190,12 @@ function pieChart() {
           },
           formatter: (value, context) => {
             const data = context.chart.data.datasets[0].data;
+            const labels =context.chart.data.labels;
+            const index = context.dataIndex;
             const total = data.reduce((a, b) => Number(a) + Number(b), 0);
-            if (total === 0) return "0%";
+            if (total === 0) return `${labels[index]} 0%`;
             const percentage = ((value / total) * 100).toFixed(1);
-            return `${value} (${percentage}%)`;
+            return `${labels[index]} ${value} (${percentage}%)`;
           },
           plugins: [ChartDataLabels],
         },
@@ -183,6 +205,7 @@ function pieChart() {
 }
 
 function lineGraph() {
+  destroyChart(); 
   const container = document.getElementById("heading");
 
   const h1Element = document.createElement("h1");
@@ -195,9 +218,9 @@ function lineGraph() {
   const max = Math.max(...yValues);
 
 
-  const ctx = document.getElementById("myChartLineGraph").getContext("2d");
+  const ctx = document.getElementById("myChart").getContext("2d");
 
-  new Chart( ctx, {
+  currentChart = new Chart(ctx, {
     type: "line",
     data: {
       labels: xValues,
@@ -213,6 +236,10 @@ function lineGraph() {
     },
     options: {
       legend: { display: false },
+      title: {
+        display: true,
+        text: "Frameworks Used in Modern Web Applications",
+      },
       scales: {
         yAxes: [{ ticks: { min: 1, max: max+1 } }],
       },
