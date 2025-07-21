@@ -8,7 +8,7 @@
 }
 
 .parent {
-     display : flex;
+    display : flex;
     justify-content: center;
     align-items: center;
     height : 100vh;
@@ -94,7 +94,6 @@ button {
     display : flex;
     flex-direction: row;
     gap : 10px;
-    /* margin-left: 50px; */
     margin-top:30px;
     align-items: center;
     height : 20px;
@@ -115,6 +114,8 @@ button {
     justify-content: center;
     align-items:center;
     gap:5px;
+    padding-bottom: 30px;
+    margin-top: 0px;
 }
 
 
@@ -122,6 +123,7 @@ button {
     font-weight: bold;
     font-size:40px;
     gap : 10px;
+    height:50px;
 }
 
 
