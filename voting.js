@@ -17,8 +17,6 @@ function submit() {
       alert("Data saved successfully");
       let value = localStorage.getItem(ele[i].value);
       value++;
-
-      console.log(value);
       localStorage.setItem(ele[i].value, value);
     }
   }
