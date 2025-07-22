@@ -48,6 +48,9 @@ function verticalBarGraph() {
   const barColors = ["red", "green", "blue", "orange", "brown"];
   
 
+  const max = Math.max(...yValues);
+  
+
 
   currentChart = new Chart(ctx, {
     type: "bar",
@@ -61,6 +64,9 @@ function verticalBarGraph() {
       ],
     },
     options: {
+      scales: {
+        yAxes: [{ ticks: { min: 0, max: max+1 } }],
+      },
       legend: { display: false },
       title: {
         display: true,
@@ -128,7 +134,7 @@ function horizontalBarGraph() {
     },
     options: {
       scales: {
-        xAxes: [{ ticks: { min: 1, max: max+1 } }],
+        xAxes: [{ ticks: { min: 0, max: max+1 } }],
       },
       legend: { display: false },
       title: {
@@ -271,7 +277,7 @@ function lineGraph() {
         text: "Frameworks Used in Modern Web Applications",
       },
       scales: {
-        yAxes: [{ ticks: { min: 1, max: max+1 } }],
+        yAxes: [{ ticks: { min: 0, max: max+1} }],
       },
       plugins: {
         datalabels: {
