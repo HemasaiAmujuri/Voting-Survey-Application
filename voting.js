@@ -22,16 +22,6 @@ function submit() {
   }
 }
 
-let react = localStorage.getItem("React");
-let angular = localStorage.getItem("Angular");
-let solid = localStorage.getItem("Solid.js");
-let svelte = localStorage.getItem("Svelte");
-let vue = localStorage.getItem("Vue");
-
-const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
-const yValues = [react, angular, vue, svelte, solid];
-const barColors = ["red", "green", "blue", "orange", "brown"];
-
 
 function verticalBarGraph() {
   destroyChart(); 
@@ -46,6 +36,16 @@ function verticalBarGraph() {
 
 
   const ctx = document.getElementById("myChart").getContext("2d");
+
+  let react = localStorage.getItem("React");
+  let angular = localStorage.getItem("Angular");
+  let solid = localStorage.getItem("Solid.js");
+  let svelte = localStorage.getItem("Svelte");
+  let vue = localStorage.getItem("Vue");
+
+  const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+  const yValues = [react, angular, vue, svelte, solid];
+  const barColors = ["red", "green", "blue", "orange", "brown"];
   
 
 
@@ -101,9 +101,19 @@ function horizontalBarGraph() {
 
   const ctx = document.getElementById("myChart").getContext("2d");
 
-   const max = Math.max(...yValues);
+  
 
-  console.log(ctx);
+  let react = localStorage.getItem("React");
+  let angular = localStorage.getItem("Angular");
+  let solid = localStorage.getItem("Solid.js");
+  let svelte = localStorage.getItem("Svelte");
+  let vue = localStorage.getItem("Vue");
+
+  const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+  const yValues = [react, angular, vue, svelte, solid];
+  const barColors = ["red", "green", "blue", "orange", "brown"];
+
+  const max = Math.max(...yValues);
 
   currentChart = new Chart(ctx, {
     type: "horizontalBar",
@@ -161,6 +171,17 @@ function pieChart() {
   const ctx = document.getElementById("myChart").getContext("2d");
 
 
+  let react = localStorage.getItem("React");
+  let angular = localStorage.getItem("Angular");
+  let solid = localStorage.getItem("Solid.js");
+  let svelte = localStorage.getItem("Svelte");
+  let vue = localStorage.getItem("Vue");
+
+  const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+  const yValues = [react, angular, vue, svelte, solid];
+  const barColors = ["red", "green", "blue", "orange", "brown"];
+
+
   currentChart = new Chart(ctx, {
     type: "pie",
     data: {
@@ -213,10 +234,21 @@ function lineGraph() {
   container.textContent = "";
   container.appendChild(h1Element);
 
-  const max = Math.max(...yValues);
-
 
   const ctx = document.getElementById("myChart").getContext("2d");
+
+
+  let react = localStorage.getItem("React");
+  let angular = localStorage.getItem("Angular");
+  let solid = localStorage.getItem("Solid.js");
+  let svelte = localStorage.getItem("Svelte");
+  let vue = localStorage.getItem("Vue");
+
+  const xValues = ["React", "Angular", "Vue", "Svelte", "Solid"];
+  const yValues = [react, angular, vue, svelte, solid];
+  const barColors = ["red", "green", "blue", "orange", "brown"];
+
+  const max = Math.max(...yValues);
 
   currentChart = new Chart(ctx, {
     type: "line",
