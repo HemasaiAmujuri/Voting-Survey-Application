@@ -18,6 +18,7 @@ function submit() {
       let value = localStorage.getItem(ele[i].value);
       value++;
       localStorage.setItem(ele[i].value, value);
+      ele[i].checked = false;
     }
   }
 }
