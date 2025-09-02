@@ -54,7 +54,7 @@ function verticalBarGraph() {
 
 
   currentChart = new Chart(ctx, {
-    type: "bar",
+    type: "bar",    //DEFAULT VERTICAL BAR
     data: {
       labels: xValues,
       datasets: [
