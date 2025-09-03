@@ -12,11 +12,11 @@ function submit() {
 
   for (i = 0; i < ele.length; i++) {
     if (ele[i].checked) {
-      alert("Data saved successfully");
       let value = localStorage.getItem(ele[i].value);
       value++;
       localStorage.setItem(ele[i].value, value);
       ele[i].checked = false;
+      alert("Data saved successfully");
     }
   }
 }
