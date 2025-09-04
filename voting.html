@@ -54,23 +54,24 @@
 
         <div class="charts">
           <div class="chart-type">
-            <input type="radio" id = "vertical-bar-graph" name="chart" value = "Vertical Bar Graph" class="radio" onclick="verticalBarGraph()"/>
+            <input type="radio" id = "vertical-bar-graph" name="chart" value = "Vertical Bar Graph" class="radio" onclick="graph('Vertical Bar Graph','bar')"/>
             <label for = "bar-graph">Vertical Bar Graph</label>
           </div>
 
 
           <div class="chart-type">
-            <input type="radio" id = "horizontal-bar-graph" name="chart" value = "Horizontal Bar Graph" class="radio" onclick="horizontalBarGraph()"/>
+            <input type="radio" id = "horizontal-bar-graph" name="chart" value = "Horizontal Bar Graph" class="radio" onclick="graph('Horizontal Bar-Graph','horizontalBar')" />
+
             <label>Horizontal Bar Graph</label>
           </div>
 
           <div class="chart-type">
-            <input type="radio" id = "line-graph" name="chart" value = "Line Graph" class="radio" onclick="lineGraph()"/>
+            <input type="radio" id = "line-graph" name="chart" value = "Line Graph" class="radio" onclick="graph('Line Graph', 'line')"/>
             <label>Line Graph</label>
           </div>
 
           <div class="chart-type">
-            <input type="radio" id = "Pie-chart" name="chart" value = "Pie Chart" class="radio" onclick="pieChart()"/>
+            <input type="radio" id = "Pie-chart" name="chart" value = "Pie Chart" class="radio" onclick="graph('Pie Chart','pie')"/>
             <label>Pie chart</label>
           </div>
         </div>
